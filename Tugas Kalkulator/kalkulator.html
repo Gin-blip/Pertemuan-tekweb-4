@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CALCU-TRON · Kalkulator Arcade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<button class="boot" type="button" aria-label="Tekan Start untuk memulai dan mengaktifkan suara">
+  <small>-- INSERT COIN --</small>
+  <b>PRESS START</b>
+  <small>KLIK / TAP / ENTER<br>UNTUK MENGAKTIFKAN SUARA</small>
+</button>
+
+<main class="stage" inert>
+  <div class="cabinet">
+    <header class="marquee">CALCU-TRON<small>ARITHMETIC DX 1984</small></header>
+
+    <div class="bezel">
+      <section class="screen" data-phase="idle" aria-label="Layar kalkulator">
+        <div class="hud"><span class="blink">1UP</span><span>CREDIT 01</span></div>
+
+        <div class="field">
+          <label for="a">P1 &gt; ANGKA A</label>
+          <div class="row">
+            <input id="a" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" maxlength="16" placeholder="0">
+            <button class="neg" type="button" data-neg="a" aria-label="Balik tanda angka A">+/-</button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="b">P2 &gt; ANGKA B</label>
+          <div class="row">
+            <input id="b" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" maxlength="16" placeholder="0">
+            <button class="neg" type="button" data-neg="b" aria-label="Balik tanda angka B">+/-</button>
+          </div>
+        </div>
+
+        <div class="score">
+          <p id="expr" class="expr">READY PLAYER 1</p>
+          <output id="result" for="a b" aria-live="polite">0</output>
+          <p id="msg" class="msg" role="alert"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="deck" aria-label="Operasi">
+      <div class="ops">
+        <button class="key" type="button" data-op="+" style="--k:var(--green)" aria-label="Tambah">+</button>
+        <button class="key" type="button" data-op="-" style="--k:#2f8cff" aria-label="Kurang">-</button>
+        <button class="key" type="button" data-op="*" style="--k:#f5b800" aria-label="Kali">&times;</button>
+        <button class="key" type="button" data-op="/" style="--k:var(--pink)" aria-label="Bagi">&divide;</button>
+      </div>
+      <div class="aux">
+        <button id="clr" class="pill" type="button">CLR</button>
+        <button id="snd" class="pill" type="button" aria-pressed="false">SND ON</button>
+      </div>
+    </section>
+    <div class="coin" aria-hidden="true"><i></i></div>
+  </div>
+</main>
+
+<script src="script.js" defer></script>
+</body>
+</html>
